@@ -6,3 +6,8 @@ CLIENT_ID=
 SECRET=
 ```
 
+## requirements
+
+```
+$ pip install -r requirements.txt
+```
