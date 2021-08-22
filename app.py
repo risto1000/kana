@@ -3,11 +3,12 @@ from dotenv import dotenv_values
 import sys
 
 config = dotenv_values(".env")
+print(config)
 
 class PayPalClient:
     def __init__(self):
-        self.client_id = config.CLIENT_ID
-        self.client_secret = config.SECRET
+        self.client_id = config['CLIENT_ID']
+        self.client_secret = config['SECRET']
 
         """Set up and return PayPal Python SDK environment with PayPal access credentials.
            This sample uses SandboxEnvironment. In production, use LiveEnvironment."""
@@ -46,7 +47,7 @@ class PayPalClient:
         return result
 
     def is_primittive(self, data):
-        return isinstance(data, str) or isinstance(data, unicode) or isinstance(data, int)
+        return isinstance(data, str) or isinstance(data, int)
 
 from paypalcheckoutsdk.orders import OrdersCreateRequest
 
@@ -177,4 +178,4 @@ def capture():
     kissa = {
         'id': response.result.dict()['id']
     }
-    return kissa
+    return kissa 
